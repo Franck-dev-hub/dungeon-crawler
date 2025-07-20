@@ -1,9 +1,9 @@
 -- Imports
-local sceneDonjon = require("sceneDonjon")
+local sceneDongeon = require("sceneDongeon")
 local sceneEditor = require("sceneEditor")
 
 -- Inits
-local sceneCurrent = sceneDonjon
+local sceneCurrent = sceneDongeon
 
 -- Core pdate is executed each frame based on dt
 function love.update(dt)

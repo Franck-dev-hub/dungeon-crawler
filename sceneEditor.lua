@@ -1,15 +1,15 @@
 -- Module creation
 local sceneEditor = {}
 
--- Load donjon scene
+-- Load editor scene
 function sceneEditor.load()
 end
 
--- Update donjon scne
+-- Update editor scne
 function sceneEditor.update(dt)
 end
 
--- Draw donjon scne
+-- Draw editor scene
 function sceneEditor.draw(dt)
 	love.graphics.print("Editor scene")
 end
