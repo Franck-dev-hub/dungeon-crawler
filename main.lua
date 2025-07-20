@@ -1,11 +1,16 @@
 -- Imports
-local sceneDongeon = require("sceneDongeon")
+local sceneDungeon = require("sceneDungeon")
 local sceneEditor = require("sceneEditor")
 
 -- Inits
-local sceneCurrent = sceneDongeon
+local sceneCurrent = sceneDungeon
 
--- Core pdate is executed each frame based on dt
+-- Load when it's called
+function love.load()
+	sceneCurrent.load()
+end
+
+-- Core update is executed each frame based on dt
 function love.update(dt)
 	sceneCurrent.update(dt)
 end
@@ -22,5 +27,5 @@ end
 
 -- Is executed each time mouse button is pressed
 function love.mousepressed(x, y, button, istouch)
-	sceneCurrent.moussepressed(x, y , button, istouch)
+	sceneCurrent.mousepressed(x, y , button, istouch)
 end

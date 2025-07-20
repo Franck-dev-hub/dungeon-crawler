@@ -1,11 +1,14 @@
 -- Module creation
-local dongeon = {}
+local dungeon = {}
 
 -- Variables
 local map = {}
+dungeon.width = 0
+dungeon.height = 0
+dungeon.sizeCase = 18
 
--- Load the dongeon
-function dongeon.load()
+-- Load the dungeon
+function dungeon.load()
 	map = {
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 		{1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1},
@@ -39,16 +42,35 @@ function dongeon.load()
 		{1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 	}
+
+-- Get map size
+dungeon.width = #map[1]
+dungeon.height = #map
+print("Dungeon size is " .. dungeon.width .. "x" .. dungeon.height)
 end
 
 function draw2D()
+	-- Draw map
+	for row = 1, dungeon.height do
+		for column = 1, dungeon.width do
+			local x = (column - 1) * dungeon.sizeCase
+			local y = (row - 1) * dungeon.sizeCase
+			local case = map[row][column]
+			if case == 1 then
+				love.graphics.setColor(1, 1, 1)
+			else
+				love.graphics.setColor(0.3, 0.3, 0.3)
+			end
+			love.graphics.rectangle("fill", x, y, dungeon.sizeCase, dungeon.sizeCase)
+		end
+	end
 end
 
 function draw3D()
 end
 
 -- Draw the dungeon
-function dongeon.draw(dt, mode)
+function dungeon.draw(dt, mode)
 	if mode == "2D" then
 		draw2D()
 	elseif mode == "3D" then
@@ -57,4 +79,4 @@ function dongeon.draw(dt, mode)
 end
 
 -- Return module
-return dongeon
+return dungeon
