@@ -12,13 +12,14 @@ This is a dungeon crawler clone made by [Gamecodeur]().
 ## 💡 Usage
 
 ## 📁 Project Structure
+```txt
 .
 ├── README.md
 ├── donjon.lua
 ├── main.lua
 ├── sceneDonjon.lua
 └── sceneEditeur.lua
-
+```
 ## ❓ Help
 
 ## 💖 Acknowledgments
