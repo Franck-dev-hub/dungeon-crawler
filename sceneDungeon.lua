@@ -6,8 +6,8 @@ local dungeon = require("dungeon")
 
 -- Load dungeon scene
 function sceneDungeon.load()
-	-- Load dungeon
-	dungeon.load()
+	dungeon.load() -- Load dungeon
+	dungeon.changePlayerPosition(2, 2, dungeon.EAST) -- Init player position
 end
 
 -- Update dungeon scne

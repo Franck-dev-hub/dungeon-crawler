@@ -17,6 +17,7 @@ end
 
 -- Draw update is executed each frame based on dt
 function love.draw(dt)
+	love.graphics.scale(2, 2)
 	sceneCurrent.draw(dt)
 end
 
