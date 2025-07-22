@@ -11,7 +11,7 @@ dungeon.sizeCase = 9
 dungeon.NORTH = 1
 dungeon.EAST = 2
 dungeon.SOUTH  = 3
-dungeon.West = 4
+dungeon.WEST = 4
 
 -- Player position
 dungeon.playerX = 0
@@ -73,6 +73,10 @@ function dungeon.changePlayerPosition(x, y, direction)
 	dungeon.playerDirection = direction
 end
 
+function dungeon.case(row, column)
+	return map[row][column]
+end
+
 function draw2D()
 	-- Draw map
 	for row = 1, dungeon.height do
@@ -91,10 +95,10 @@ function draw2D()
 				-- Draw image in function of the player direction
 				if dungeon.playerDirection == dungeon.NORTH then
 					love.graphics.draw(imgNORTH, x, y)
-				elseif dungeon.playerDirection == dungeon.SOUTH then
-					love.graphics.draw(imgSOUTH, x, y)
 				elseif dungeon.playerDirection == dungeon.EAST then
 					love.graphics.draw(imgEAST, x, y)
+				elseif dungeon.playerDirection == dungeon.SOUTH then
+					love.graphics.draw(imgSOUTH, x, y)
 				elseif dungeon.playerDirection == dungeon.WEST then
 					love.graphics.draw(imgWEST, x, y)
 				end
