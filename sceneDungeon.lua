@@ -17,7 +17,7 @@ end
 -- Draw dungeon scene
 function sceneDungeon.draw(dt)
 	-- Init with 2D dungeon
-	dungeon.draw(dt, "2D")
+	dungeon.draw(dt, "3D")
 end
 
 -- Keyboard management
