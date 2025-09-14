@@ -19,6 +19,41 @@ end
 
 -- Keyboard management
 function sceneEditor.keypressed(key)
+	-- Save map
+	if key == "s" then
+		local chain = ""
+		for row = 1, dungeon.height do
+			for column = 1, dungeon.width do
+				chain = chain .. dungeon.case(row, column)
+				if column < dungeon.width then
+					chain = chain .. ","
+				end
+			end
+			chain = chain .. "\n"
+			love.filesystem.write("dungeon.csv", chain)
+		end
+	elseif key == "r" then
+		local chain = love.filesystem.read("dungeon.csv")
+		local row, column = 1, 1
+		local number = ""
+
+		for i = 1, #chain do
+			local char = string.sub(chain, i, i)
+			if char == "," or char == "\n" then
+				if number ~= "" then
+					dungeon.changeCase(row, column, tonumber(number))
+					number = ""
+					column = column + 1
+					if column > dungeon.width then
+						column = 1
+						row = row + 1
+					end
+				end
+			else
+				number = number .. char
+			end
+		end
+	end
 end
 
 -- Mouse management
