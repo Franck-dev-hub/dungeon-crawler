@@ -10,13 +10,12 @@ function sceneDungeon.load()
 	dungeon.changePlayerPosition(2, 2, dungeon.EAST) -- Init player position
 end
 
--- Update dungeon scne
+-- Update dungeon scene
 function sceneDungeon.update(dt)
 end
 
 -- Draw dungeon scene
 function sceneDungeon.draw(dt)
-	-- Init with 2D dungeon
 	dungeon.draw(dt, "3D")
 end
 

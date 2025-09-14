@@ -1,3 +1,6 @@
+-- Disable scale smoothing
+love.graphics.setDefaultFilter("nearest")
+
 -- Imports
 local sceneDungeon = require("sceneDungeon")
 local sceneEditor = require("sceneEditor")
@@ -23,6 +26,14 @@ end
 
 -- Is executed each time a key is pressed
 function love.keypressed(key)
+	if key == "escape" then
+		if sceneCurrent == sceneEditor then
+			sceneCurrent = sceneDungeon
+		else
+			sceneCurrent = sceneEditor
+		end
+	end
+
 	sceneCurrent.keypressed(key)
 end
 

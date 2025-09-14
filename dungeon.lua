@@ -80,7 +80,6 @@ function dungeon.load()
 -- Get map size
 dungeon.width = #map[1]
 dungeon.height = #map
-print("Dungeon size is " .. dungeon.width .. "x" .. dungeon.height)
 end
 
 -- Load player position
@@ -307,6 +306,10 @@ function draw3D()
 			}
 		)
 	end
+end
+
+function dungeon.changeCase(row, column, value)
+	map[row][column] = value
 end
 
 -- Draw the dungeon
